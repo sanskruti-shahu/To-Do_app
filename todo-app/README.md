@@ -1,6 +1,6 @@
 # My TODO App
 
-This is a small responsive To-Do app created in React. With functionality to create, check and delete todos.
+This is a small responsive To-Do app created in React with functionality to create, check and delete todos.
 
 ## Demo
 
