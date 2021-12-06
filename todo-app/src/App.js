@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import TodoItem from './components/TodoItem';
 
@@ -14,6 +14,29 @@ function App() {
     setTodos([...todos, { todotext: text, id: Math.random() * 10 }]);
     setText("");
     return
+  }
+
+  //Below are stepps to Save todo data to local storage and then get from local storage.. so that after refresh also data will not be lost
+
+  useEffect(() => {
+    togetLocalTodos();
+  },[]) // empty array coz we want it to run only once when app started  and it should be run before savingLocal function
+
+  useEffect(() => {
+    savingLocalTodos();   //when todos state changes this will run
+  },[todos])
+
+  const savingLocalTodos = () => {
+    localStorage.setItem('todos', JSON.stringify(todos)); // saving our todos to local storage
+  }
+  const togetLocalTodos = () => {
+    if(localStorage.getItem('todos')===null){
+      localStorage.setItem('todos', JSON.stringify([])); // when no data present display empty  
+    }
+    else{
+      let localTodos = JSON.parse(localStorage.getItem('todos'));
+      setTodos(localTodos); // when data present then display the stored data to current state using setTodos
+    }
   }
   return (
     <div className="Header">

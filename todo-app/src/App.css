@@ -43,8 +43,8 @@ input[type=text] {
   background-color: white;
   padding: 6px;
 }
-input[type=text]:focus{   
-  outline: 0px;          
+input[type=text]:focus{   /* When input box is clicked.. by default it shows black border..so to change style after click on input "focus" is used... */
+  outline: 0px;          /* whatever style written inside this will work when we select our input type */
 }
 ::placeholder {   /* these are to change placeholder style in diff browsers */
   color: #98BAE7;

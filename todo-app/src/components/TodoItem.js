@@ -8,7 +8,8 @@ function TodoItem({ todos, todo, setTodos, todotext }) {
   }
   const handleDelete = () => {
     // i is current element
-    setTodos(todos.filter((i) => i.id !== todo.id))  
+    setTodos(todos.filter((i) => i.id !== todo.id))  //filter will make new array by following given statement.. 
+    //here new array will be made of those element whose id not equals to current todo's id so this will basically eliminate the clicked item
   }
   return (
     <div className="todoitem">
